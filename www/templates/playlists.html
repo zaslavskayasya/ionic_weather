@@ -1,0 +1,17 @@
+<ion-view view-title="Playlists">
+  <ion-content >
+    <div class="list card" ng-repeat="video in videos | orderBy: 'views'" ng-click="ModalVideo(video)">
+
+      <div class="item">
+                <h2> {{video.title}} </h2>
+        <p>{{video.author}}</p>
+      </div>
+
+      <div class="item item-image">
+        <img ng-src="{{video.image}}">
+      </div>
+
+
+    </div>
+  </ion-content>
+</ion-view>

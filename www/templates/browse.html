@@ -1,0 +1,22 @@
+<ion-view view-title="Browse">
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+        <div class="list list-inset">
+          <label class="item item-input">
+              <button class="icon ion-search placeholder-icon" ng-disabled="!search.$valid" ng-click="searchVideos(video)"></button>
+            <input class="icon ion-search placeholder-icon" placeholder="Text input" required type="text" ng-model="searchSettings.query"/>
+            {{searchSettings.query}}
+          </label>
+        </div>
+
+
+        <video-item ng-repeat="video in searched | orderBy: 'views'"> </video-item>
+
+
+    </div>
+
+
+</div>
+  </ion-content>
+</ion-view>
