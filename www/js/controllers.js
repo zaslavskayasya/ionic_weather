@@ -21,29 +21,27 @@ angular.module('starter.controllers', [])
   }
 
   $scope.videos = [];
-  $scope.searched = [];
+
 
   API.getMostPopularVideos().then(function (data) {
     console.log(data);
     $scope.videos = data;
   })
 
-
-
-
-
-
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
+    .controller('OpenVideoController',function ($routeParams, $scope, $sce) {
+      /* alert($routeParams.id);*/
+      $scope.url= $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + $routeParams.id)
+    })
 
 .controller('SearchController', function ($scope, API) {
   $scope.searchSettings = {
     query: null,
     regions: 'US'
   };
-
   $scope.regions = [{
     title: 'Рос',
     value: 'RU'
@@ -51,8 +49,7 @@ angular.module('starter.controllers', [])
     title: 'USA',
     value: 'US'
   }];
-
-  $scope.searchVideos = function () {
+  $scope.searchVideos = function ( ) {
     API.SearchVideos($scope.searchSettings).then(function (videos) {
       console.log(videos);
       $scope.searched = videos;
