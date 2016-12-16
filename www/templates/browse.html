@@ -2,20 +2,32 @@
   <ion-content>
     <div class="card">
       <div class="item item-text-wrap">
-        <div class="list list-inset">
+        <div class="list list-inset" >
           <label class="item item-input">
-              <button class="icon ion-search placeholder-icon" ng-disabled="!search.$valid" ng-click="searchVideos(videos)"></button>
-            <input class="icon ion-search placeholder-icon" placeholder="Text input" required type="text" ng-model="searchSettings.query"/>
-            {{searchSettings.query}}
+            <input class="icon ion-search placeholder-icon" placeholder="Text input"  type="text" ng-model="searchSettings.query"/>
+
+              <button class="icon ion-search placeholder-icon" ng-click="SearchVideos()"></button>
+               {{searchSettings.query}}
           </label>
         </div>
 
+        <div ng-repeat="video in searched | orderBy: 'views'">
+          <div class="card">
+            <div class="item item-text-wrap">
+              <h2 class="h2">{{ video.title}}</h2>
+              <img ng-src="{{video.thumbnails.default.url}}">
+              <img ng-src="{{ video.image}}"/>
+              <p > <span class="views"> Просмотры: </span> {{ video.views | number}}</p>
+              <p> <span class="descr"> Описание: </span> {{ video.descript | limitTo:150 }}</p>
+              <button  ng-show="video.isF" class="btn btn-info text-right">Добавить в избранное</button>
+              <button class="btn btn-info"><a ng-href="#/video/{{video.id}}">Watch</a></button>
+              <button  ng-hide="video.isF" class="btn btn-info text-right">Удалить</button>
+            </div>
+          </div>
 
-        <video-item ng-repeat="video in searched | orderBy: 'views'"> </video-item>
-
+        </div>
 
     </div>
-
 
 </div>
   </ion-content>

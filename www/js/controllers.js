@@ -5,6 +5,7 @@ angular.module('starter.controllers', [])
 
 })
 
+
 .controller('PlaylistsCtrl', function($scope, API, $ionicModal) {
   $ionicModal.fromTemplateUrl('templates/video-modal.html', {
     scope: $scope,
@@ -23,37 +24,33 @@ angular.module('starter.controllers', [])
   $scope.videos = [];
 
 
-  API.getMostPopularVideos().then(function (data) {
-    console.log(data);
-    $scope.videos = data;
-  })
+        API.getMostPopularVideos().then(function (dataOb) {  /* dataOb видно только тут. Благодаря $scope. оно выводится из этой области видимости и доступно во всем контроллере */
+
+            $scope.videos = dataOb.my_videos;
+            $scope.next_Token = dataOb.next_Token;
+            /* $scope. использовать дальше в такой же форме либо через var next_...*/
+            console.log($scope.next_Token);
+        })
+        $scope.next = function () {
+           console.log($scope.next_Token)
+            API.getMostPopularVideos($scope.next_Token).then(function (dataOb) {
+                $scope.videos = dataOb.my_videos;
+                $scope.next_Token = dataOb.next_Token;
+            });
+
+            /* */
+        }
+
 
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
-    .controller('OpenVideoController',function ($routeParams, $scope, $sce) {
-      /* alert($routeParams.id);*/
-      $scope.url= $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + $routeParams.id)
-    })
 
-.controller('SearchController', function ($scope, API) {
-  $scope.searchSettings = {
-    query: null,
-    regions: 'US'
-  };
-  $scope.regions = [{
-    title: 'Рос',
-    value: 'RU'
-  }, {
-    title: 'USA',
-    value: 'US'
-  }];
-  $scope.searchVideos = function ( ) {
-    API.SearchVideos($scope.searchSettings).then(function (videos) {
-      console.log(videos);
-      $scope.searched = videos;
-    });
-  };
-  $scope.searched = [];
-});
+
+.controller('OpenVideoController',function ($routeParams, $scope, $sce) {
+    console.log($routeParams.id);
+    alert("111");   /* даже просто это не работает, значит эту часть не видно?*/
+    console.log($routeParams.id);
+    $scope.url= $sce.trustAsResourceUrl('https://www.youtube.com/embed/w4y2FT7P4ek')    /* пока что полная ссылка просто для теста */
+})

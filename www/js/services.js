@@ -2,23 +2,34 @@ angular.module('starter.services', [])
 
 .service('API', function ($http, $q , apiKeys, youtubeFactory) {
     return {
-        getMostPopularVideos: function () {
-
+        getMostPopularVideos: function (token) {
+         /*  alert(token);*/
             var d = $q.defer();
             $http({
                 method: 'GET',
                 url: 'https://www.googleapis.com/youtube/v3/videos',
                 params: {
                     part: 'snippet',
-                    maxResults: 50 ,
+                    maxResults: 5 ,
                     key : apiKeys.youtube,
-                    chart: 'mostPopular'
+                    chart: 'mostPopular',
+                    nextPageToken : 'CDIQAA',
+                    pageToken : token
                 }
             }).then(function (data) {
+                var next_Token = data.data.nextPageToken;
+
+
                 var y_videos = data.data.items;
                 var my_videos = youtubeFactory.convertYoutubeToTamplate(y_videos);
 
-                d.resolve(my_videos);
+
+                var dataOb = {
+                    next_Token:  data.data.nextPageToken,
+                    my_videos: youtubeFactory.convertYoutubeToTamplate(y_videos)
+                }
+
+                d.resolve(dataOb);
             });
             return d.promise;
 
