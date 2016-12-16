@@ -1,2 +1,2 @@
-# ionic Youtube app / not weather =)
+# ionic Youtube app 
 ## study 
