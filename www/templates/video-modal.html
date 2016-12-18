@@ -1,12 +1,14 @@
 <ion-modal-view view-title="OpenVideoController" >
     <ion-header-bar>
         <h1 class="title"> Title: {{video.title}}</h1>
-        <p>{{video.id}}</p>
+
 
     </ion-header-bar>
     <ion-content>
         <h8 class=""> It is about: {{video.descript | limitTo: 100}}</h8>
 
-       <iframe  ng-src="{{url}}" allowfullscreen> </iframe>
+        <iframe  ng-src={{videoUrl}}></iframe>
+
+
     </ion-content>
 </ion-modal-view>

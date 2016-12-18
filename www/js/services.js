@@ -20,13 +20,13 @@ angular.module('starter.services', [])
             }).then(function (data) {
                 var next_Token = data.data.nextPageToken;
                 var prev_Token = data.data.prevPageToken;
-                console.log(next_Token);
-                console.log(prev_Token);
+               /* console.log(next_Token);
+                console.log(prev_Token);*/
 
                 var y_videos = data.data.items;
                 var my_videos = youtubeFactory.convertYoutubeToTamplate(y_videos);
                 var dataOb = {
-                    next_Token:  data.data.nextPageToken,
+                    next_Token: data.data.nextPageToken,
                     prev_Token: data.data.prevPageToken,
                     my_videos: youtubeFactory.convertYoutubeToTamplate(y_videos)
                 }
@@ -36,7 +36,6 @@ angular.module('starter.services', [])
             return d.promise;
 
         }, SearchVideos: function (params) {
-
             var d = $q.defer();
             $http({
                 method: 'GET',

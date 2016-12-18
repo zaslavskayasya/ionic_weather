@@ -4,14 +4,14 @@
       <div class="item item-text-wrap">
         <div class="list list-inset" >
           <label class="item item-input">
-            <input class="icon ion-search placeholder-icon" placeholder="Text input"  type="text" ng-model="searchSettings.query"/>
+            <input class="icon ion-search placeholder-icon"  ng-model="searchSettings.query"  placeholder="Text input"  type="text" />
 
               <button class="icon ion-search placeholder-icon" ng-click="SearchVideos()"></button>
                {{searchSettings.query}}
           </label>
         </div>
 
-        <div ng-repeat="video in searched | orderBy: 'views'">
+        <div ng-repeat="video in searched ">
           <div class="card">
             <div class="item item-text-wrap">
               <h2 class="h2">{{ video.title}}</h2>
