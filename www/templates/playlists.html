@@ -3,7 +3,7 @@
     <div class="list card" ng-repeat="video in videos | orderBy: 'views'" ng-click="ModalVideo(video)">
 
       <div class="item">
-        <h2> {{video.title}} </h2>
+        <h2 class="videoListTitle"> {{video.title}} </h2>
         <p>{{video.author}}</p>
       </div>
 
@@ -11,12 +11,15 @@
         <img ng-src="{{video.image}}">
       </div>
     </div>
+
+    <div class="ButtonsBlock">
     <button class="button button-positive"  ng-click="prev()">
       Назад
     </button>
     <button class="button button-positive"  ng-click="next()">
       Дальше
     </button>
+    </div>
 
   </ion-content>
 

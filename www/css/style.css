@@ -1,1 +1,42 @@
 /* Empty. Add your own CSS if you like */
+.modalContent {
+    padding: 20px;
+}
+.modalDescription {
+    font-size: 16px;
+    color:  #4b8bf4;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.frame {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 5% ;
+    height: 300px;
+    width: 100%;
+}
+.closeIcon {
+    float: right;
+}
+.DescriptionSearchCard {
+    padding: 10px;
+
+}
+.titleInSearch {
+    font-size: 25px;
+    padding: 15px;
+    text-align: center;
+    font-weight: 800;
+}
+.inputSearch {
+    color: #4b8bf4;
+    font-size: 16px;
+}
+.videoListTitle {
+    text-align: center;
+    font-size: 30px;
+}
+.ButtonsBlock {
+    text-align: center;
+    margin: 20px;
+}

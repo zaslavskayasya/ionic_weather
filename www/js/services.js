@@ -13,15 +13,15 @@ angular.module('starter.services', [])
                     maxResults: 5 ,
                     key : apiKeys.youtube,
                     chart: 'mostPopular',
-                    nextPageToken : 'CDIQAA',
-                    prevPageToken : 'CB4QAQ',
+                  /*  nextPageToken : 'CDIQAA',
+                    prevPageToken : 'CB4QAQ',*/
                     pageToken : token
                 }
             }).then(function (data) {
                 var next_Token = data.data.nextPageToken;
                 var prev_Token = data.data.prevPageToken;
-               /* console.log(next_Token);
-                console.log(prev_Token);*/
+                console.log(next_Token);
+                console.log(prev_Token);
 
                 var y_videos = data.data.items;
                 var my_videos = youtubeFactory.convertYoutubeToTamplate(y_videos);
@@ -42,7 +42,7 @@ angular.module('starter.services', [])
                 url: 'https://www.googleapis.com/youtube/v3/search',
                 params: {
                     part: 'snippet',
-                    maxResults: 2 ,
+                    maxResults: 5 ,
                     key : apiKeys.youtube,
                     q: params.query
 

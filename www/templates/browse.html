@@ -1,26 +1,24 @@
-<ion-view view-title="Browse">
+<ion-view view-title="Browse" view-title="Playlist">
   <ion-content>
     <div class="card">
       <div class="item item-text-wrap">
         <div class="list list-inset" >
           <label class="item item-input"  ng-click="SearchVideos()">
-            <input class="icon ion-search placeholder-icon"  ng-model="searchSet.query"  placeholder="Text input"  type="text" />
-                {{searchSet.query}}
-              <button  ng-click="SearchVideos()">search</button>
+            <input class="icon ion-search placeholder-icon inputSearch"  ng-model="searchSet.query"  placeholder="Text input"  type="text" />
+
+              <i  class="icon ion-search" ng-click="SearchVideos()"></i>
             </label>
         </div>
 
         <div ng-repeat="video in searched ">
-          <div class="card">
+          <div class="card" ng-click="ModalVideo(video)">
             <div class="item item-text-wrap">
-              <h2 class="h2">{{ video.title}}</h2>
+              <h2 class="titleInSearch">{{ video.title}}</h2>
               <img ng-src="{{video.thumbnails.default.url}}">
               <img ng-src="{{ video.image}}"/>
-              <p > <span class="views"> Просмотры: </span> {{ video.views | number}}</p>
-              <p> <span class="descr"> Описание: </span> {{ video.descript | limitTo:150 }}</p>
+              <p class="DescriptionSearchCard"> <span class="descr"> Описание: </span> {{ video.descript | limitTo:150 }}</p>
               <button  ng-show="video.isF" class="btn btn-info text-right">Добавить в избранное</button>
-              <button class="btn btn-info"><a ng-href="#/video/{{video.id}}">Watch</a></button>
-              <button  ng-hide="video.isF" class="btn btn-info text-right">Удалить</button>
+              <button class="button button-positive" ng-click="ModalVideo(video)">Watch it now!</button>
             </div>
           </div>
 
