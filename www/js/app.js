@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' ])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services',  ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -24,8 +24,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' ])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
-    .state('app', {
+      .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -49,15 +48,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' ])
         }
       }
     })
-      .state('app.video-modal', {
-          url: '/video-modal/:id',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/video-modal.html',
-                  controller: 'OpenVideoController'
-              }
-          }
-      })
+
 
   .state('app.single', {
     url: '/playlists/:playlistId',
@@ -70,4 +61,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' ])
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
+
 });
