@@ -58,34 +58,23 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SearchVideoController', function ($scope , API) {
-    console.log('test');
-    $scope.searched = [];
-    console.log($scope.searched)
-    /*$scope.searchSettings = {
-        query: 'cats',
+    console.log('test1');
 
+    $scope.searchSet = {
+        query: 'kittens'
     };
-    console.log($scope.searchSettings.query);
-    $scope.searchVideos = function () {
-        console.log('test2')
-        alert($scope.searchSettings.query)
+    $scope.SearchVideos = function () {
+        API.SearchVideos($scope.searchSet).then(function (videos) {
+            console.log(videos);
+            $scope.searched = videos;
 
-        API.SearchVideos($scope.searchSettings.query).then(function (my_videos) {
-            console.log(my_videos);
-            console.log($scope.searchSettings);
-            $scope.searched = my_videos;
         });
     };
-    $scope.searched = [];*/
 
 
-})
 
-/*.controller('OpenVideoController',function ($scope, $stateParams,  $sce) {
-        console.log($stateParams.params);
-        alert("111");
+    $scope.searched = [];
+    console.log( $scope.searched);
 
-        console.log($stateParams.id);
-        $scope.url = $sce.trustAsResourceUrl('//www.youtube.com/embed/w4y2FT7P4ek')
 
-})*/
+});

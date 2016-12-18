@@ -42,10 +42,10 @@ angular.module('starter.services', [])
                 url: 'https://www.googleapis.com/youtube/v3/search',
                 params: {
                     part: 'snippet',
-                    maxResults: 13 ,
+                    maxResults: 2 ,
                     key : apiKeys.youtube,
-                    q: params.query,
-                    regionCode: params.regions
+                    q: params.query
+
                 }
             }).then(function (data) {
                 var y_videos = data.data.items;
