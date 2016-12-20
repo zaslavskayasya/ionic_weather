@@ -66,7 +66,7 @@ angular.module('starter.controllers', [])
         });
     };
 
-/* а это надо как-то вынести в отдельный файл, как повторяющийся кусочек...*/
+/* а это надо как-то вынести в отдельный файл/функцию, как повторяющийся кусочек...*/
     $ionicModal.fromTemplateUrl('templates/video-modal.html', {
         scope: $scope,
         animation: 'slide-in-up'

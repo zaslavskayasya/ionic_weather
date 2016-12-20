@@ -6,7 +6,9 @@
     </ion-header-bar>
     <ion-content class="modalContent">
         <h8 class="modalDescription"> It is about: {{video.descript | limitTo: 100}}</h8>
+         <div class="frameWrap">
+             <iframe class="frame" allowfullscreen ng-src={{videoUrl}}></iframe>
+         </div>
 
-        <iframe class="frame" allowfullscreen ng-src={{videoUrl}}></iframe>
     </ion-content>
 </ion-modal-view>

@@ -8,13 +8,24 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
+
+
+.frameWrap{
+    position: relative;
+    padding-bottom: 46.25%;
+
+}
 .frame {
+    position: absolute;
+    top: 0;
+    left: 0;
     text-align: center;
-    padding-top: 20px;
+
     margin-top: 5% ;
-    height: 300px;
+    height: 100%;
     width: 100%;
 }
+
 .closeIcon {
     float: right;
 }
